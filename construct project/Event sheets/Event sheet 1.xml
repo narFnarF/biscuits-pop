@@ -59,7 +59,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block disabled="1" sid="541152368416576">
+                <event-block sid="541152368416576">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="409764560436083" type="System" />
                         <condition id="-12" name="Repeat" sid="981884320813648" type="System">
@@ -138,22 +138,30 @@
         </event-group>
         <event-group description="" sid="510705584712146" title="explosion">
             <sub-events>
-                <event-group description="" sid="239707298730698" title="preview">
+                <comment>fuck previews! Too complex!</comment>
+                <event-group description="" disabled="1" sid="239707298730698" title="preview">
                     <sub-events>
                         <variable constant="0" name="sizeModifier" sid="153925090871444" static="0" type="number">1.5</variable>
-                        <comment>managing influence</comment>
-                        <event-block sid="328097590680519">
+                        <event-block disabled="1" sid="328097590680519">
                             <conditions>
-                                <condition id="-18" name="On created" sid="861515401308720" type="ballColl" />
+                                <condition id="-11" name="For Each" sid="715616959173045" type="System">
+                                    <param id="0" name="Object">influence</param>
+                                </condition>
+                                <condition id="-14" name="Pick by unique ID" sid="407626933577119" type="ballColl">
+                                    <param id="0" name="Unique ID">influence.pin.PinnedUID</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="-7" name="Set size" sid="734614840523693" type="influence">
                                     <param id="0" name="Width">ballColl.Width * sizeModifier</param>
                                     <param id="1" name="Height">ballColl.Height * sizeModifier</param>
                                 </action>
+                                <action disabled="1" id="14" name="Log" sid="182681691369728" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;size:: ballColl &quot; &amp; ballColl.UID &amp; &quot; influence &quot; &amp; influence.UID &amp; &quot;. Size=&quot; &amp; influence.Width*influence.Height</param>
+                                </action>
                             </actions>
                         </event-block>
-                        <comment>this doesn&apos;t work</comment>
                         <event-block disabled="1" sid="842246338744458">
                             <conditions>
                                 <condition id="-19" name="On destroyed" sid="520484943777621" type="ballColl" />
@@ -169,7 +177,7 @@
                             </actions>
                         </event-block>
                         <comment>preview stuff</comment>
-                        <event-block sid="342560965831456">
+                        <event-block disabled="1" sid="342560965831456">
                             <conditions />
                             <actions>
                                 <action id="-15" name="Set visible" sid="425986391924974" type="influence">
@@ -178,7 +186,7 @@
                             </actions>
                         </event-block>
                         <variable constant="0" name="touchedColor" sid="643464102789701" static="0" type="text"></variable>
-                        <event-block sid="108134854266035">
+                        <event-block disabled="1" sid="108134854266035">
                             <conditions>
                                 <condition id="12" name="Has Nth touch" sid="847840013073428" type="Touch">
                                     <param id="0" name="Touch number">0</param>
@@ -207,7 +215,8 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="118949360137520">
+                        <comment>pick ballView</comment>
+                        <event-block disabled="1" sid="118949360137520">
                             <conditions>
                                 <condition id="-9" name="Is visible" sid="642129185888957" type="influence" />
                                 <condition id="1" name="Is overlapping another object" sid="247219407388813" type="ballView">
@@ -228,6 +237,17 @@
                                     <param id="1" name="Message">&quot;preview: &quot; &amp; ballView.PickedCount</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <comment>pick the influences of those ballView</comment>
+                                <event-block disabled="1" sid="123387030029352">
+                                    <conditions>
+                                        <condition id="-19" name="Pick all" sid="275017008494214" type="System">
+                                            <param id="0" name="Object">influence</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>
