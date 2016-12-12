@@ -58,6 +58,9 @@
         </object-folder>
         <object-type name="wall" sid="260957157762034">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="bottom" sid="180816845707357" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Physics" sid="840028675690689">
                     <behavior id="Physics" />

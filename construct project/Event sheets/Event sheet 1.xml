@@ -130,7 +130,7 @@
                     <actions>
                         <action id="0" name="Call function" sid="492580026119586" type="Function">
                             <param id="0" name="Name">&quot;spawner .spawn&quot;</param>
-                            <param id="1" name="Parameter {n}">choose(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;)</param>
+                            <param id="1" name="Parameter {n}">choose(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;black&quot;)</param>
                         </action>
                     </actions>
                 </event-block>
@@ -259,6 +259,11 @@
                                 <condition id="17" name="On tap object" sid="122905319678937" type="Touch">
                                     <param id="0" name="Object">ballColl</param>
                                 </condition>
+                                <condition id="-7" inverted="1" name="Compare instance variable" sid="321246103411535" type="ballColl">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;black&quot;</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="101260901750263" type="Function">
@@ -347,9 +352,31 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-block sid="735771111843661">
-                    <conditions />
-                    <actions />
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="549722822288734" title="black">
+            <sub-events>
+                <event-block sid="905362155952464">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="379559712206250" type="ballView">
+                            <param id="0" name="Object">wall</param>
+                        </condition>
+                        <condition id="-8" name="Is boolean instance variable set" sid="806405054889960" type="wall">
+                            <param id="0" name="Instance variable">bottom</param>
+                        </condition>
+                        <condition id="-7" name="Compare instance variable" sid="252196306145651" type="ballView">
+                            <param id="0" name="Instance variable">color</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;black&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="826841990881045" type="Function">
+                            <param id="0" name="Name">&quot;ballColl .boom&quot;</param>
+                            <param id="1" name="Parameter {n}">ballColl.UID</param>
+                        </action>
+                        <action disabled="1" id="-9" name="Destroy" sid="629358686671295" type="ballColl" />
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>

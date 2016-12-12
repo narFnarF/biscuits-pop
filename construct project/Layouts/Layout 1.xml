@@ -36,6 +36,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <bottom>false</bottom>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
@@ -74,6 +77,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <bottom>false</bottom>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
@@ -112,6 +118,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <bottom>true</bottom>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
@@ -172,6 +181,9 @@
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
                     </properties>
+                    <instance-variables>
+                        <bottom>false</bottom>
+                    </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Physics">
                             <properties>
