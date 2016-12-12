@@ -63,7 +63,7 @@
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="409764560436083" type="System" />
                         <condition id="-12" name="Repeat" sid="981884320813648" type="System">
-                            <param id="0" name="Count">50</param>
+                            <param id="0" name="Count">40</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -251,7 +251,103 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-block sid="390660713473410">
+                <event-group description="" sid="362689106166523" title="boom">
+                    <sub-events>
+                        <variable constant="0" name="sizeModifier" sid="265762944117727" static="0" type="number">1.5</variable>
+                        <event-block sid="390660713473410">
+                            <conditions>
+                                <condition id="17" name="On tap object" sid="122905319678937" type="Touch">
+                                    <param id="0" name="Object">ballColl</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="101260901750263" type="Function">
+                                    <param id="0" name="Name">&quot;ballColl .boom&quot;</param>
+                                    <param id="1" name="Parameter {n}">ballColl.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="314172681655949">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="365207678472212" type="System">
+                                    <param id="0" name="Interval (seconds)">0.05</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="829204659624440" type="ballColl">
+                                    <param id="0" name="Object">explosion</param>
+                                </condition>
+                                <condition disabled="1" id="1" name="Is overlapping another object" sid="110858559464098" type="explosion">
+                                    <param id="0" name="Object">ballColl</param>
+                                </condition>
+                                <condition id="-7" name="Compare instance variable" sid="353903068216032" type="ballColl">
+                                    <param id="0" name="Instance variable">color</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">explosion.color</param>
+                                </condition>
+                                <condition id="-11" name="For Each" sid="443028926448440" type="System">
+                                    <param id="0" name="Object">ballColl</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="710954629848051" type="Function">
+                                    <param id="0" name="Name">&quot;ballColl .boom&quot;</param>
+                                    <param id="1" name="Parameter {n}">ballColl.UID</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="751743473746300">
+                            <conditions>
+                                <condition id="0" name="On function" sid="706399055650025" type="Function">
+                                    <param id="0" name="Name">&quot;ballColl .boom&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="id" sid="434895085759415" static="0" type="number">0</variable>
+                                <event-block sid="133446280723740">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="494677347859907" type="System">
+                                            <param id="0" name="Variable">id</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="551508439710996">
+                                    <conditions>
+                                        <condition id="-14" name="Pick by unique ID" sid="168443230838546" type="ballColl">
+                                            <param id="0" name="Unique ID">id</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="632068743710215" type="System">
+                                            <param id="0" name="Object to create">explosion</param>
+                                            <param id="1" name="Layer">&quot;influence&quot;</param>
+                                            <param id="2" name="X">ballColl.X</param>
+                                            <param id="3" name="Y">ballColl.Y</param>
+                                        </action>
+                                        <action id="-7" name="Set size" sid="236555094955934" type="explosion">
+                                            <param id="0" name="Width">ballColl.Width * sizeModifier</param>
+                                            <param id="1" name="Height">ballColl.Height * sizeModifier</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="978059779489639" type="explosion">
+                                            <param id="0" name="Instance variable">color</param>
+                                            <param id="1" name="Value">ballColl.color</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="675724646976853" type="ballColl" />
+                                        <action id="-16" name="Wait" sid="791439037181683" type="System">
+                                            <param id="0" name="Seconds">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="530619428532716" type="Function">
+                                            <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="735771111843661">
                     <conditions />
                     <actions />
                 </event-block>
