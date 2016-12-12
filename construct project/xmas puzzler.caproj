@@ -150,12 +150,21 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="explosion" sid="132198508689196">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="371298394724826" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="colored" plugin-id="Sprite" sid="555123717984583">
             <members>
                 <member>ballColl</member>
                 <member>ballView</member>
+                <member>explosion</member>
                 <member>influence</member>
             </members>
             <instance-variables>

@@ -138,7 +138,7 @@
         </event-group>
         <event-group description="" sid="510705584712146" title="explosion">
             <sub-events>
-                <comment>fuck previews! Too complex!</comment>
+                <comment>fuck previews! It&apos;s too complicated!</comment>
                 <event-group description="" disabled="1" sid="239707298730698" title="preview">
                     <sub-events>
                         <variable constant="0" name="sizeModifier" sid="153925090871444" static="0" type="number">1.5</variable>
@@ -251,6 +251,10 @@
                         </event-block>
                     </sub-events>
                 </event-group>
+                <event-block sid="390660713473410">
+                    <conditions />
+                    <actions />
+                </event-block>
             </sub-events>
         </event-group>
     </events>
