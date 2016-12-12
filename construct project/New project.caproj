@@ -9,8 +9,12 @@
     <app-id>com.mycompany.myapp</app-id>
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>23900</saved-with-version>
-    <used-plugins />
-    <used-behaviors />
+    <used-plugins>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
+    </used-behaviors>
     <used-effects />
     <configurations>
         <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
@@ -35,7 +39,82 @@
         <prop name="Sampling">Linear</prop>
         <prop name="Use high-DPI display">Yes</prop>
     </configuration-settings>
-    <object-folder />
+    <object-folder>
+        <object-type name="wall" sid="260957157762034">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="840028675690689">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="949514647668358" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ballColl" sid="164567742397756">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Physics" sid="269794333250925">
+                    <behavior id="Physics" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>ballColl</type>
+                <type>ballView</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="black" pingpong="0" repeatcount="1" repeatto="0" sid="688599390222172" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="blue" pingpong="0" repeatcount="1" repeatto="0" sid="871343714433077" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="red" pingpong="0" repeatcount="1" repeatto="0" sid="430297634961399" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="green" pingpong="0" repeatcount="1" repeatto="0" sid="720297306585290" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="yellow" pingpong="0" repeatcount="1" repeatto="0" sid="360761108836928" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ballView" sid="308158835534726">
+            <plugin id="Sprite" />
+            <container>
+                <type>ballColl</type>
+                <type>ballView</type>
+            </container>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="black" pingpong="0" repeatcount="1" repeatto="0" sid="570844678676523" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="blue" pingpong="0" repeatcount="1" repeatto="0" sid="449807666769100" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="red" pingpong="0" repeatcount="1" repeatto="0" sid="564686966530669" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="green" pingpong="0" repeatcount="1" repeatto="0" sid="820001598996638" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="yellow" pingpong="0" repeatcount="1" repeatto="0" sid="647308469166068" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="spawner" sid="290112103711740">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="469574532361890" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+    </object-folder>
     <families />
     <layout-folder>
         <layout>Layout 1.xml</layout>

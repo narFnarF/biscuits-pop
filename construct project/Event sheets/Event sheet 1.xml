@@ -2,5 +2,42 @@
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
-    <events />
+    <events>
+        <event-block sid="461941583238247">
+            <conditions>
+                <condition id="-18" name="On created" sid="864262226414440" type="ballColl" />
+            </conditions>
+            <actions>
+                <action disabled="1" id="-3" name="Create object" sid="151466946329573" type="System">
+                    <param id="0" name="Object to create">ballView</param>
+                    <param id="1" name="Layer">ballColl.LayerName</param>
+                    <param id="2" name="X">0</param>
+                    <param id="3" name="Y">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="502850489509924" type="ballView">
+                    <param id="0" name="Animation">ballColl.AnimationName</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable constant="0" name="sizeModifier" sid="903474557376692" static="0" type="number">1.15</variable>
+        <event-block sid="345779696397425">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="255338420230992" type="System" />
+            </conditions>
+            <actions>
+                <action id="-7" name="Set size" sid="766134493970408" type="ballView">
+                    <param id="0" name="Width">ballColl.Width * sizeModifier</param>
+                    <param id="1" name="Height">ballColl.Height * sizeModifier</param>
+                </action>
+                <action id="-4" name="Set position to another object" sid="739199817981275" type="ballView">
+                    <param id="0" name="Object">ballColl</param>
+                    <param id="1" name="Image point (optional)">0</param>
+                </action>
+                <action id="-8" name="Set angle" sid="617965245120696" type="ballView">
+                    <param id="0" name="Angle">ballColl.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
 </c2eventsheet>
