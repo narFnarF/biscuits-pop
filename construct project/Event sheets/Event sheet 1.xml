@@ -22,6 +22,10 @@
                         <action id="-15" name="Set visible" sid="766814199166959" type="influence">
                             <param id="0" name="Visibility">0</param>
                         </action>
+                        <action id="-10" name="Set value" sid="510125351813504" type="influence">
+                            <param id="0" name="Instance variable">color</param>
+                            <param id="1" name="Value">ballColl.color</param>
+                        </action>
                         <action disabled="1" id="-26" name="Move to layer" sid="354612300817228" type="influence">
                             <param id="0" name="Layer">&quot;influence&quot;</param>
                         </action>
@@ -55,7 +59,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="541152368416576">
+                <event-block disabled="1" sid="541152368416576">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="409764560436083" type="System" />
                         <condition id="-12" name="Repeat" sid="981884320813648" type="System">
@@ -69,7 +73,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="779693261959182">
+                <event-block disabled="1" sid="779693261959182">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="408270783150527" type="System">
                             <param id="0" name="Interval (seconds)">1.0</param>
@@ -149,12 +153,15 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <comment>not sure if this actually works</comment>
-                        <event-block sid="842246338744458">
+                        <comment>this doesn&apos;t work</comment>
+                        <event-block disabled="1" sid="842246338744458">
                             <conditions>
                                 <condition id="-19" name="On destroyed" sid="520484943777621" type="ballColl" />
-                                <condition id="-14" name="Pick by unique ID" sid="909000574057984" type="influence">
-                                    <param id="0" name="Unique ID">influence.Pin.PinnedUID</param>
+                                <condition id="-33" name="Pick by comparison" sid="907449405468275" type="System">
+                                    <param id="0" name="Object">influence</param>
+                                    <param id="1" name="Expression">influence.pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">ballColl.UID</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -179,8 +186,11 @@
                                 <condition id="4" name="Is touching object" sid="812315797395736" type="Touch">
                                     <param id="0" name="Object">ballColl</param>
                                 </condition>
-                                <condition id="-14" name="Pick by unique ID" sid="731703695554099" type="influence">
-                                    <param id="0" name="Unique ID">influence.Pin.PinnedUID</param>
+                                <condition id="-33" name="Pick by comparison" sid="731703695554099" type="System">
+                                    <param id="0" name="Object">influence</param>
+                                    <param id="1" name="Expression">influence.pin.PinnedUID</param>
+                                    <param id="2" name="Comparison">0</param>
+                                    <param id="3" name="Value">ballColl.UID</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -191,12 +201,19 @@
                                     <param id="0" name="Variable">touchedColor</param>
                                     <param id="1" name="Value">ballColl.color</param>
                                 </action>
+                                <action id="14" name="Log" sid="496756325261049" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;touched color:&quot; &amp; touchedColor</param>
+                                </action>
                             </actions>
                         </event-block>
-                        <event-block disabled="1" sid="118949360137520">
+                        <event-block sid="118949360137520">
                             <conditions>
                                 <condition id="-9" name="Is visible" sid="642129185888957" type="influence" />
-                                <condition id="1" name="Is overlapping another object" sid="596948698562610" type="influence">
+                                <condition id="1" name="Is overlapping another object" sid="247219407388813" type="ballView">
+                                    <param id="0" name="Object">influence</param>
+                                </condition>
+                                <condition disabled="1" id="1" name="Is overlapping another object" sid="596948698562610" type="influence">
                                     <param id="0" name="Object">ballView</param>
                                 </condition>
                                 <condition id="-7" name="Compare instance variable" sid="263341455187872" type="ballView">
@@ -208,7 +225,7 @@
                             <actions>
                                 <action id="14" name="Log" sid="451725856466333" type="Browser">
                                     <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;preview: &quot; &amp; colored.PickedCount/2</param>
+                                    <param id="1" name="Message">&quot;preview: &quot; &amp; ballView.PickedCount</param>
                                 </action>
                             </actions>
                         </event-block>
