@@ -14,10 +14,6 @@
                     <param id="2" name="X">0</param>
                     <param id="3" name="Y">0</param>
                 </action>
-                <action id="4" name="Set animation" sid="502850489509924" type="ballView">
-                    <param id="0" name="Animation">ballColl.AnimationName</param>
-                    <param id="1" name="From">1</param>
-                </action>
             </actions>
         </event-block>
         <variable constant="0" name="sizeModifier" sid="903474557376692" static="0" type="number">1.15</variable>
@@ -36,6 +32,85 @@
                 </action>
                 <action id="-8" name="Set angle" sid="617965245120696" type="ballView">
                     <param id="0" name="Angle">ballColl.Angle</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="541152368416576">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="409764560436083" type="System" />
+                <condition id="-12" name="Repeat" sid="981884320813648" type="System">
+                    <param id="0" name="Count">50</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="248054700027869" type="Function">
+                    <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="779693261959182">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="408270783150527" type="System">
+                    <param id="0" name="Interval (seconds)">1.0</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="260961645302992" type="Function">
+                    <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="412916585638411">
+            <conditions>
+                <condition id="0" name="On function" sid="676371386200733" type="Function">
+                    <param id="0" name="Name">&quot;spawner .spawn&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <variable constant="0" name="color" sid="420917656910765" static="0" type="text"></variable>
+                <event-block sid="694281492550964">
+                    <conditions />
+                    <actions>
+                        <action id="-9" name="Set value" sid="774781544065209" type="System">
+                            <param id="0" name="Variable">color</param>
+                            <param id="1" name="Value">Function.Param(0)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="846266362109984">
+                    <conditions />
+                    <actions>
+                        <action id="-3" name="Create object" sid="669680767385779" type="System">
+                            <param id="0" name="Object to create">ballColl</param>
+                            <param id="1" name="Layer">0</param>
+                            <param id="2" name="X">random(spawner.BBoxLeft, spawner.BBoxRight)</param>
+                            <param id="3" name="Y">spawner.Y</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="778858644537495" type="ballColl">
+                            <param id="0" name="Animation">color</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="502850489509924" type="ballView">
+                            <param id="0" name="Animation">color</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="124176217960437">
+            <conditions>
+                <condition id="0" name="On function" sid="549930365627386" type="Function">
+                    <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="492580026119586" type="Function">
+                    <param id="0" name="Name">&quot;spawner .spawn&quot;</param>
+                    <param id="1" name="Parameter {n}">choose(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;)</param>
                 </action>
             </actions>
         </event-block>
