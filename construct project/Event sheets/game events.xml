@@ -1,8 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>Event sheet 1</name>
+    <name>game events</name>
     <events>
+        <variable constant="0" name="touch" sid="169593481736544" static="0" type="number">10</variable>
+        <variable constant="0" name="touchInit" sid="193918613332080" static="0" type="number">10</variable>
+        <variable constant="0" name="score" sid="968227059861179" static="0" type="number">0</variable>
         <event-group description="" sid="413910405155343" title="balls">
             <sub-events>
                 <event-block sid="461941583238247">
@@ -238,9 +241,9 @@
         </event-group>
         <event-group description="" sid="510705584712146" title="explosion">
             <sub-events>
-                <comment>fuck previews! It&apos;s too complicated!</comment>
                 <event-group description="" disabled="1" sid="239707298730698" title="preview">
                     <sub-events>
+                        <comment>fuck previews! It&apos;s too complicated!</comment>
                         <variable constant="0" name="sizeModifier" sid="153925090871444" static="0" type="number">1.5</variable>
                         <event-block disabled="1" sid="328097590680519">
                             <conditions>
@@ -364,11 +367,20 @@
                                     <param id="1" name="Comparison">0</param>
                                     <param id="2" name="Value">&quot;black&quot;</param>
                                 </condition>
+                                <condition id="-14" name="Compare variable" sid="861145437745121" type="System">
+                                    <param id="0" name="Variable">touch</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action id="0" name="Call function" sid="101260901750263" type="Function">
                                     <param id="0" name="Name">&quot;ballColl .boom&quot;</param>
                                     <param id="1" name="Parameter {n}">ballColl.UID</param>
+                                </action>
+                                <action id="0" name="Call function" sid="939484818192399" type="Function">
+                                    <param id="0" name="Name">&quot;score .countTap&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
                                 </action>
                             </actions>
                         </event-block>
@@ -568,14 +580,12 @@
         </event-group>
         <event-group description="" sid="560717311442575" title="scoring">
             <sub-events>
-                <variable constant="0" name="touch" sid="169593481736544" static="1" type="number">10</variable>
-                <variable constant="0" name="score" sid="968227059861179" static="1" type="number">0</variable>
                 <variable constant="0" name="scoreCounter" sid="900227794840302" static="1" type="number">0</variable>
                 <variable constant="0" name="timer" sid="492331901077624" static="1" type="number">0</variable>
                 <event-block sid="987367389222703">
                     <conditions>
-                        <condition id="10" name="On Nth touch start" sid="394732237575035" type="Touch">
-                            <param id="0" name="Touch number">0</param>
+                        <condition id="0" name="On function" sid="681173193282234" type="Function">
+                            <param id="0" name="Name">&quot;score .countTap&quot;</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -657,14 +667,25 @@
                                     <param id="2" name="Value">1</param>
                                 </condition>
                                 <condition id="-4" name="Trigger once while true" sid="376533743617314" type="System" />
+                                <condition id="-14" name="Compare variable" sid="174170051716910" type="System">
+                                    <param id="0" name="Variable">touch</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">touchInit</param>
+                                </condition>
                             </conditions>
                             <actions>
                                 <action disabled="1" id="14" name="Log" sid="927069944770060" type="Browser">
                                     <param id="0" name="Type">0</param>
                                     <param id="1" name="Message">&quot;score: &quot; &amp; scoreCounter</param>
                                 </action>
-                                <action behavior="Fade" id="0" name="Restart fade" sid="731033990100135" type="scoreAdd" />
-                                <action id="-3" name="Set position" sid="232874712985753" type="scoreAdd">
+                                <action id="-3" name="Create object" sid="822550950520472" type="System">
+                                    <param id="0" name="Object to create">scoreAdd</param>
+                                    <param id="1" name="Layer">&quot;game&quot;</param>
+                                    <param id="2" name="X">379</param>
+                                    <param id="3" name="Y">1188</param>
+                                </action>
+                                <action behavior="Fade" disabled="1" id="0" name="Restart fade" sid="731033990100135" type="scoreAdd" />
+                                <action disabled="1" id="-3" name="Set position" sid="232874712985753" type="scoreAdd">
                                     <param id="0" name="X">379</param>
                                     <param id="1" name="Y">1188</param>
                                 </action>
@@ -690,6 +711,48 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-group description="" sid="238612343500145" title="touch">
+                    <sub-events>
+                        <event-block sid="251376650123096">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Set text" sid="357705490996389" type="tapDisplay">
+                                    <param id="0" name="Text">&quot;Taps: &quot; &amp; touch</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="461326406743341">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="124302592078514" type="System">
+                                    <param id="0" name="Variable">touch</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="596147281370150" type="wall">
+                                    <param id="0" name="Instance variable">bottom</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-16" name="Wait" sid="424423186860606" type="System">
+                                    <param id="0" name="Seconds">2</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="694589532948162" type="wall" />
+                                <action id="-16" name="Wait" sid="900417527177347" type="System">
+                                    <param id="0" name="Seconds">3</param>
+                                </action>
+                                <action id="-26" name="Restart layout" sid="193353921727467" type="System" />
+                                <action id="-9" name="Set value" sid="370798965790707" type="System">
+                                    <param id="0" name="Variable">score</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="211656217414454" type="System">
+                                    <param id="0" name="Variable">touch</param>
+                                    <param id="1" name="Value">touchInit</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
     </events>

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>Layout 1</name>
+    <name>game</name>
     <sid>8873350371196689</sid>
-    <event-sheet>Event sheet 1</event-sheet>
+    <event-sheet>game events</event-sheet>
     <size>
         <width>720</width>
         <height>1280</height>
@@ -59,10 +59,10 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>65</x>
-                        <y>673.5</y>
+                        <y>643.24621582</y>
                         <z>0</z>
                         <width>34</width>
-                        <height>904</height>
+                        <height>899.492431641</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
@@ -100,7 +100,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>656</x>
-                        <y>675.5</y>
+                        <y>647.5</y>
                         <z>0</z>
                         <width>34</width>
                         <height>892</height>
@@ -140,15 +140,15 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>359.5</x>
-                        <y>1106</y>
+                        <x>207.375793457</x>
+                        <y>1100.125366211</y>
                         <z>0</z>
-                        <width>615</width>
+                        <width>290</width>
                         <height>30</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
+                        <angle>0.147411436</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
@@ -163,7 +163,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>362</x>
-                        <y>302</y>
+                        <y>274</y>
                         <z>0</z>
                         <width>480</width>
                         <height>82</height>
@@ -204,7 +204,7 @@
                     <effect-fallback>0</effect-fallback>
                     <world>
                         <x>365</x>
-                        <y>219</y>
+                        <y>191</y>
                         <z>0</z>
                         <width>615</width>
                         <height>30</height>
@@ -261,9 +261,50 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="scoreAdd" uid="16">
+                <instance type="wall" uid="16">
                     <properties>
-                        <text>+88</text>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <instance-variables>
+                        <bottom>true</bottom>
+                    </instance-variables>
+                    <behavior-instances>
+                        <behavior-instance type="Physics">
+                            <properties>
+                                <immovable>Yes</immovable>
+                                <collision-mask>Use collision polygon</collision-mask>
+                                <prevent-rotation>No</prevent-rotation>
+                                <density>1</density>
+                                <friction>0.5</friction>
+                                <elasticity>0.2</elasticity>
+                                <linear-damping>0</linear-damping>
+                                <angular-damping>0.01</angular-damping>
+                                <bullet>No</bullet>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>505.443725586</x>
+                        <y>1099.448364258</y>
+                        <z>0</z>
+                        <width>333</width>
+                        <height>30</height>
+                        <depth>0</depth>
+                        <hotspotX>0.5</hotspotX>
+                        <hotspotY>0.5</hotspotY>
+                        <angle>-0.131374091</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="tapDisplay" uid="17">
+                    <properties>
+                        <text>Tap: 10</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-48,400,0</font>
                         <color>0,0,0</color>
@@ -273,32 +314,11 @@
                         <wrapping>Word</wrapping>
                         <line-height>0</line-height>
                     </properties>
-                    <behavior-instances>
-                        <behavior-instance type="Bullet">
-                            <properties>
-                                <speed>30</speed>
-                                <acceleration>0</acceleration>
-                                <gravity>0</gravity>
-                                <bounce-off-solids>No</bounce-off-solids>
-                                <set-angle>No</set-angle>
-                                <initial-state>Enabled</initial-state>
-                            </properties>
-                        </behavior-instance>
-                        <behavior-instance type="Fade">
-                            <properties>
-                                <active-at-start>Yes</active-at-start>
-                                <fade-in-time>0</fade-in-time>
-                                <wait-time>0</wait-time>
-                                <fade-out-time>3</fade-out-time>
-                                <destroy>No</destroy>
-                            </properties>
-                        </behavior-instance>
-                    </behavior-instances>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>379</x>
-                        <y>1188</y>
+                        <x>64</x>
+                        <y>62</y>
                         <z>0</z>
                         <width>422</width>
                         <height>77</height>

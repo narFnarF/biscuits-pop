@@ -210,6 +210,9 @@
                 </behavior-type>
             </behaviors>
         </object-type>
+        <object-type name="tapDisplay" sid="390041710654634">
+            <plugin id="Text" />
+        </object-type>
     </object-folder>
     <families>
         <family name="colored" plugin-id="Sprite" sid="555123717984583">
@@ -230,11 +233,13 @@
         </family>
     </families>
     <layout-folder>
-        <layout>Layout 1.xml</layout>
+        <layout>game.xml</layout>
         <layout>spawned objects.xml</layout>
+        <layout>game over.xml</layout>
     </layout-folder>
     <event-folder>
-        <event-sheet>Event sheet 1.xml</event-sheet>
+        <event-sheet>game events.xml</event-sheet>
+        <event-sheet>game over events.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Function" uid="10" />
