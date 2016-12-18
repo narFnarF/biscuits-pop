@@ -70,7 +70,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="0" name="Call function" sid="248054700027869" type="Function">
+                        <action disabled="1" id="0" name="Call function" sid="248054700027869" type="Function">
                             <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
                             <param id="1" name="Parameter {n}"></param>
                         </action>
@@ -118,7 +118,7 @@
                                 <action id="-16" name="Wait" sid="510294179526695" type="System">
                                     <param id="0" name="Seconds">1</param>
                                 </action>
-                                <action id="0" name="Call function" sid="563273468481946" type="Function">
+                                <action disabled="1" id="0" name="Call function" sid="563273468481946" type="Function">
                                     <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
                                     <param id="1" name="Parameter {n}"></param>
                                 </action>
@@ -191,7 +191,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="584367117332633">
+                <event-block disabled="1" sid="584367117332633">
                     <conditions>
                         <condition id="-2" name="On start of layout" sid="642537303591088" type="System" />
                     </conditions>
@@ -455,7 +455,7 @@
                                         <action id="-16" name="Wait" sid="791439037181683" type="System">
                                             <param id="0" name="Seconds">1</param>
                                         </action>
-                                        <action id="0" name="Call function" sid="530619428532716" type="Function">
+                                        <action disabled="1" id="0" name="Call function" sid="530619428532716" type="Function">
                                             <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
                                             <param id="1" name="Parameter {n}"></param>
                                         </action>
@@ -601,7 +601,7 @@
                             <param id="0" name="Variable">touch</param>
                             <param id="1" name="Value">1</param>
                         </action>
-                        <action id="14" name="Log" sid="494565314049100" type="Browser">
+                        <action disabled="1" id="14" name="Log" sid="494565314049100" type="Browser">
                             <param id="0" name="Type">0</param>
                             <param id="1" name="Message">&quot;Touch: &quot; &amp; touch</param>
                         </action>
@@ -740,7 +740,9 @@
                                 <action id="-16" name="Wait" sid="900417527177347" type="System">
                                     <param id="0" name="Seconds">3</param>
                                 </action>
-                                <action id="-26" name="Restart layout" sid="193353921727467" type="System" />
+                                <action id="-2" name="Go to layout" sid="193353921727467" type="System">
+                                    <param id="0" name="Layout">game over</param>
+                                </action>
                                 <action id="-9" name="Set value" sid="370798965790707" type="System">
                                     <param id="0" name="Variable">score</param>
                                     <param id="1" name="Value">0</param>
