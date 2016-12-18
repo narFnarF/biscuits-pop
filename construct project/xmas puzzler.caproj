@@ -14,9 +14,11 @@
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
     <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
@@ -193,6 +195,20 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="score" sid="831869978925140">
+            <plugin id="Text" />
+        </object-type>
+        <object-type name="scoreAdd" sid="403794947695111">
+            <plugin id="Text" />
+            <behaviors>
+                <behavior-type name="Bullet" sid="395020600106902">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Fade" sid="783380610488915">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
         </object-type>
     </object-folder>
     <families>
