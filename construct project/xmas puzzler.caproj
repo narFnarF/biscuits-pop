@@ -12,6 +12,7 @@
     <used-plugins>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
@@ -19,6 +20,7 @@
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -55,6 +57,9 @@
             <object-type name="Touch" sid="984107394034640">
                 <plugin id="Touch" />
             </object-type>
+            <object-type name="Keyboard" sid="811325036075786">
+                <plugin id="Keyboard" />
+            </object-type>
         </object-folder>
         <object-type name="wall" sid="260957157762034">
             <plugin id="Sprite" />
@@ -74,6 +79,9 @@
         </object-type>
         <object-type name="ballColl" sid="164567742397756">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="big" sid="311286725255678" type="boolean" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Physics" sid="269794333250925">
                     <behavior id="Physics" />
@@ -167,6 +175,25 @@
                 </animation>
             </animation-folder>
         </object-type>
+        <object-type name="laser" sid="463255779985256">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="state" sid="399810708263884" type="string" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Rotate" sid="634013545135790">
+                    <behavior id="Rotate" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="702288034529955">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="561053954836776" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="colored" plugin-id="Sprite" sid="555123717984583">
@@ -201,6 +228,7 @@
                 <use-mouse-input>Yes</use-mouse-input>
             </properties>
         </global-instance>
+        <global-instance type="Keyboard" uid="6" />
     </global-instances>
     <sounds-folder />
     <music-folder />

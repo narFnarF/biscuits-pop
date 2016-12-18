@@ -86,6 +86,119 @@
                         </action>
                     </actions>
                 </event-block>
+                <event-block sid="744786614979928">
+                    <conditions>
+                        <condition id="0" name="On function" sid="917225440878445" type="Function">
+                            <param id="0" name="Name">&quot;ballColl .destroyed&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="id" sid="546248719452905" static="0" type="number">0</variable>
+                        <event-block sid="879048053114566">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="697902274377224" type="System">
+                                    <param id="0" name="Variable">id</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="977898083740702">
+                            <conditions>
+                                <condition id="-14" name="Pick by unique ID" sid="905600737147149" type="ballColl">
+                                    <param id="0" name="Unique ID">id</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="170638213120476" type="ballColl" />
+                                <action id="-16" name="Wait" sid="510294179526695" type="System">
+                                    <param id="0" name="Seconds">1</param>
+                                </action>
+                                <action id="0" name="Call function" sid="563273468481946" type="Function">
+                                    <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="355358973654367" title="spawner">
+            <sub-events>
+                <variable constant="0" name="maxBalls" sid="270737050089395" static="0" type="number">40</variable>
+                <variable comment="1=true" constant="0" name="active" sid="908116953916892" static="1" type="number">1</variable>
+                <event-block disabled="1" sid="124176217960437">
+                    <conditions>
+                        <condition id="0" name="On function" sid="549930365627386" type="Function">
+                            <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="429556888875543" type="System">
+                            <param id="0" name="Variable">active</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="717878350755634">
+                    <conditions>
+                        <condition id="-6" name="Every X seconds" sid="367138538149156" type="System">
+                            <param id="0" name="Interval (seconds)">2</param>
+                        </condition>
+                        <condition id="-8" name="Compare two values" sid="186911730395319" type="System">
+                            <param id="0" name="First value">ballColl.Count</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Second value">maxBalls</param>
+                        </condition>
+                        <condition disabled="1" id="-4" name="Trigger once while true" sid="546317057094770" type="System" />
+                        <condition id="-12" name="Repeat" sid="731328693163393" type="System">
+                            <param id="0" name="Count">maxBalls-ballColl.Count</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action disabled="1" id="-16" name="Wait" sid="359928024781201" type="System">
+                            <param id="0" name="Seconds">1.0</param>
+                        </action>
+                        <action id="0" name="Call function" sid="492580026119586" type="Function">
+                            <param id="0" name="Name">&quot;spawner .spawn&quot;</param>
+                            <param id="1" name="Parameter {n}">choose(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;black&quot;)</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block disabled="1" sid="981422086797671">
+                    <conditions>
+                        <condition id="0" name="On function" sid="770998884291244" type="Function">
+                            <param id="0" name="Name">&quot;spawner .spawnToMax&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block disabled="1" sid="730901190385386">
+                    <conditions>
+                        <condition id="11" name="On Nth touch end" sid="112782463385183" type="Touch">
+                            <param id="0" name="Touch number">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="536361840095595" type="Function">
+                            <param id="0" name="Name">&quot;spawner .spawnToMax&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="584367117332633">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="642537303591088" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="196852928338438" type="Function">
+                            <param id="0" name="Name">&quot;spawner .spawnToMax&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
                 <event-block sid="412916585638411">
                     <conditions>
                         <condition id="0" name="On function" sid="676371386200733" type="Function">
@@ -120,19 +233,6 @@
                             </actions>
                         </event-block>
                     </sub-events>
-                </event-block>
-                <event-block sid="124176217960437">
-                    <conditions>
-                        <condition id="0" name="On function" sid="549930365627386" type="Function">
-                            <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="492580026119586" type="Function">
-                            <param id="0" name="Name">&quot;spawner .spawn&quot;</param>
-                            <param id="1" name="Parameter {n}">choose(&quot;red&quot;, &quot;blue&quot;, &quot;green&quot;, &quot;yellow&quot;, &quot;black&quot;)</param>
-                        </action>
-                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
@@ -358,11 +458,11 @@
             <sub-events>
                 <event-block sid="905362155952464">
                     <conditions>
-                        <condition id="1" name="Is overlapping another object" sid="379559712206250" type="ballView">
-                            <param id="0" name="Object">wall</param>
-                        </condition>
                         <condition id="-8" name="Is boolean instance variable set" sid="806405054889960" type="wall">
                             <param id="0" name="Instance variable">bottom</param>
+                        </condition>
+                        <condition id="1" name="Is overlapping another object" sid="379559712206250" type="ballView">
+                            <param id="0" name="Object">wall</param>
                         </condition>
                         <condition id="-7" name="Compare instance variable" sid="252196306145651" type="ballView">
                             <param id="0" name="Instance variable">color</param>
@@ -380,5 +480,91 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="932541902856656" title="laser">
+            <sub-events>
+                <event-block sid="834891158213398">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="208377794358334" type="Keyboard">
+                            <param id="0" name="Key">32 (Espace)</param>
+                        </condition>
+                        <condition id="-16" name="Pick random instance" sid="672563321385995" type="System">
+                            <param id="0" name="Object">ballColl</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-3" name="Create object" sid="774956099057516" type="System">
+                            <param id="0" name="Object to create">laser</param>
+                            <param id="1" name="Layer">ballColl.LayerNumber</param>
+                            <param id="2" name="X">ballColl.X</param>
+                            <param id="3" name="Y">ballColl.Y</param>
+                        </action>
+                        <action behavior="Pin" id="0" name="Pin to object" sid="841792916428325" type="laser">
+                            <param id="0" name="Pin to">ballColl</param>
+                            <param id="1" name="Mode">1</param>
+                        </action>
+                        <action id="-8" name="Set angle" sid="929088438219370" type="laser">
+                            <param id="0" name="Angle">ballColl.Angle</param>
+                        </action>
+                        <action disabled="1" id="-8" name="Set angle" sid="510331915429979" type="laser">
+                            <param id="0" name="Angle">random(0,360)</param>
+                        </action>
+                        <action id="-6" name="Set height" sid="977183025237120" type="laser">
+                            <param id="0" name="Height">LayoutHeight*3</param>
+                        </action>
+                        <action id="14" name="Log" sid="766010929504983" type="Browser">
+                            <param id="0" name="Type">0</param>
+                            <param id="1" name="Message">&quot;space&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="305256493093460">
+                    <conditions>
+                        <condition id="-8" name="Compare two values" sid="487549052075838" type="System">
+                            <param id="0" name="First value">laser.Count</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Second value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="191708826202810" type="System">
+                            <param id="0" name="Seconds">0.1</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="345402701470078">
+                            <conditions>
+                                <condition id="1" name="Is overlapping another object" sid="166391129261761" type="ballColl">
+                                    <param id="0" name="Object">laser</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Destroy" sid="536478729053745" type="laser" />
+                            </actions>
+                            <sub-events>
+                                <event-block sid="131230914363269">
+                                    <conditions>
+                                        <condition id="-11" name="For Each" sid="762571383992174" type="System">
+                                            <param id="0" name="Object">ballColl</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action disabled="1" id="-9" name="Destroy" sid="965067656894892" type="ballColl" />
+                                        <action id="14" name="Log" sid="282427100336824" type="Browser">
+                                            <param id="0" name="Type">0</param>
+                                            <param id="1" name="Message">&quot;each&quot;</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="846850455266332" type="Function">
+                                            <param id="0" name="Name">&quot;ballColl .destroyed&quot;</param>
+                                            <param id="1" name="Parameter {n}">ballColl.UID</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="560717311442575" title="scoring" />
     </events>
 </c2eventsheet>
