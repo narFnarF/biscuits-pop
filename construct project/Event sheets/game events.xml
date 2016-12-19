@@ -387,23 +387,13 @@
                                         </condition>
                                     </conditions>
                                     <actions>
+                                        <action id="0" name="Call function" sid="555465187267181" type="Function">
+                                            <param id="0" name="Name">&quot;special .triggerBomb&quot;</param>
+                                            <param id="1" name="Parameter {n}">ballColl.X{###}ballColl.Y</param>
+                                        </action>
                                         <action id="14" name="Log" sid="814338506033575" type="Browser">
                                             <param id="0" name="Type">0</param>
                                             <param id="1" name="Message">&quot;it was a bomb&quot;</param>
-                                        </action>
-                                        <action id="-3" name="Create object" sid="343205010970511" type="System">
-                                            <param id="0" name="Object to create">explosionBomb</param>
-                                            <param id="1" name="Layer">&quot;influence&quot;</param>
-                                            <param id="2" name="X">ballColl.X</param>
-                                            <param id="3" name="Y">ballColl.Y</param>
-                                        </action>
-                                        <action id="-7" name="Set size" sid="621042648631653" type="explosionBomb">
-                                            <param id="0" name="Width">ballColl.Width * explosionSizeBomb</param>
-                                            <param id="1" name="Height">ballColl.Height * explosionSizeBomb</param>
-                                        </action>
-                                        <action id="-10" name="Set value" sid="799359905854853" type="explosionBomb">
-                                            <param id="0" name="Instance variable">color</param>
-                                            <param id="1" name="Value">&quot;any&quot;</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -616,29 +606,6 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block disabled="1" sid="834891158213398">
-                            <conditions>
-                                <condition id="0" name="On key pressed" sid="208377794358334" type="Keyboard">
-                                    <param id="0" name="Key">32 (Espace)</param>
-                                </condition>
-                                <condition id="-16" name="Pick random instance" sid="672563321385995" type="System">
-                                    <param id="0" name="Object">ballColl</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Pin" disabled="1" id="0" name="Pin to object" sid="841792916428325" type="laser">
-                                    <param id="0" name="Pin to">ballColl</param>
-                                    <param id="1" name="Mode">1</param>
-                                </action>
-                                <action disabled="1" id="-8" name="Set angle" sid="510331915429979" type="laser">
-                                    <param id="0" name="Angle">random(0,360)</param>
-                                </action>
-                                <action id="14" name="Log" sid="766010929504983" type="Browser">
-                                    <param id="0" name="Type">0</param>
-                                    <param id="1" name="Message">&quot;space&quot;</param>
-                                </action>
-                            </actions>
-                        </event-block>
                         <event-block sid="305256493093460">
                             <conditions>
                                 <condition id="-8" name="Compare two values" sid="487549052075838" type="System">
@@ -649,7 +616,7 @@
                             </conditions>
                             <actions>
                                 <action id="-16" name="Wait" sid="191708826202810" type="System">
-                                    <param id="0" name="Seconds">0.1</param>
+                                    <param id="0" name="Seconds">0.2</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -670,11 +637,6 @@
                                                 </condition>
                                             </conditions>
                                             <actions>
-                                                <action disabled="1" id="-9" name="Destroy" sid="965067656894892" type="ballColl" />
-                                                <action id="14" name="Log" sid="282427100336824" type="Browser">
-                                                    <param id="0" name="Type">0</param>
-                                                    <param id="1" name="Message">&quot;each&quot;</param>
-                                                </action>
                                                 <action id="0" name="Call function" sid="846850455266332" type="Function">
                                                     <param id="0" name="Name">&quot;ballColl .destroyedBySpecial&quot;</param>
                                                     <param id="1" name="Parameter {n}">ballColl.UID</param>
@@ -687,7 +649,51 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="863983604341057" title="bombs" />
+                <event-group description="" sid="863983604341057" title="bombs">
+                    <sub-events>
+                        <variable constant="0" name="explosionSizeBomb" sid="393034172591118" static="0" type="number">4</variable>
+                        <event-block sid="187425588241711">
+                            <conditions>
+                                <condition id="0" name="On function" sid="789981951825529" type="Function">
+                                    <param id="0" name="Name">&quot;special .triggerBomb&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <variable constant="0" name="x" sid="477408028209076" static="0" type="number">0</variable>
+                                <variable constant="0" name="y" sid="903779997901961" static="0" type="number">0</variable>
+                                <event-block sid="640090366634060">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="201378934428572" type="System">
+                                            <param id="0" name="Variable">x</param>
+                                            <param id="1" name="Value">Function.Param(0)</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="632886199464799" type="System">
+                                            <param id="0" name="Variable">y</param>
+                                            <param id="1" name="Value">Function.Param(1)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="225150345456804">
+                                    <conditions />
+                                    <actions>
+                                        <action id="-3" name="Create object" sid="971782688600759" type="System">
+                                            <param id="0" name="Object to create">explosionBomb</param>
+                                            <param id="1" name="Layer">&quot;influence&quot;</param>
+                                            <param id="2" name="X">ballColl.X</param>
+                                            <param id="3" name="Y">ballColl.Y</param>
+                                        </action>
+                                        <action id="-7" name="Set size" sid="999859574741556" type="explosionBomb">
+                                            <param id="0" name="Width">ballColl.Width * explosionSizeBomb</param>
+                                            <param id="1" name="Height">ballColl.Height * explosionSizeBomb</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
             </sub-events>
         </event-group>
         <event-group description="" sid="560717311442575" title="scoring">

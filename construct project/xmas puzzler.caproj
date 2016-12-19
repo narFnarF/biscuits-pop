@@ -273,7 +273,6 @@
                 <member>ballColl</member>
                 <member>ballView</member>
                 <member>explosion</member>
-                <member>explosionBomb</member>
                 <member>influence</member>
             </members>
             <instance-variables>
@@ -283,6 +282,12 @@
         <family name="ballViewF" plugin-id="Sprite" sid="495621013382505">
             <members>
                 <member>ballView</member>
+            </members>
+        </family>
+        <family name="specialBoom" plugin-id="Sprite" sid="289373913773876">
+            <members>
+                <member>explosionBomb</member>
+                <member>laser</member>
             </members>
         </family>
     </families>
