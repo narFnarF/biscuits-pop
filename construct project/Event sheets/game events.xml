@@ -124,7 +124,7 @@
                 <event-block sid="744786614979928">
                     <conditions>
                         <condition id="0" name="On function" sid="917225440878445" type="Function">
-                            <param id="0" name="Name">&quot;ballColl .destroyed&quot;</param>
+                            <param id="0" name="Name">&quot;ballColl .destroyedBySpecial&quot;</param>
                         </condition>
                     </conditions>
                     <actions />
@@ -147,7 +147,7 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="170638213120476" type="ballColl" />
-                                <action id="-16" name="Wait" sid="510294179526695" type="System">
+                                <action disabled="1" id="-16" name="Wait" sid="510294179526695" type="System">
                                     <param id="0" name="Seconds">1</param>
                                 </action>
                                 <action disabled="1" id="0" name="Call function" sid="563273468481946" type="Function">
@@ -233,6 +233,7 @@
         <event-group description="" sid="362689106166523" title="chain reaction">
             <sub-events>
                 <variable constant="0" name="sizeModifier" sid="265762944117727" static="0" type="number">1.5</variable>
+                <comment>destroyed by touch</comment>
                 <event-block sid="390660713473410">
                     <conditions>
                         <condition id="17" name="On tap object" sid="122905319678937" type="Touch">
@@ -260,6 +261,7 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>destroyed by chain reaction</comment>
                 <event-block sid="314172681655949">
                     <conditions>
                         <condition id="-6" name="Every X seconds" sid="365207678472212" type="System">
@@ -370,21 +372,6 @@
                                             <param id="1" name="Value">ballColl.color</param>
                                         </action>
                                         <action id="-9" name="Destroy" sid="675724646976853" type="ballColl" />
-                                        <action disabled="1" id="-16" name="Wait" sid="791439037181683" type="System">
-                                            <param id="0" name="Seconds">1</param>
-                                        </action>
-                                        <action disabled="1" id="0" name="Call function" sid="530619428532716" type="Function">
-                                            <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
-                                        </action>
-                                        <action disabled="1" id="14" name="Log" sid="842728180395511" type="Browser">
-                                            <param id="0" name="Type">0</param>
-                                            <param id="1" name="Message">&quot;ici: &quot; &amp; ballColl.color</param>
-                                        </action>
-                                        <action id="14" name="Log" sid="508415876034639" type="Browser">
-                                            <param id="0" name="Type">0</param>
-                                            <param id="1" name="Message">&quot;timer: &quot; &amp; ballColl.Timer.TotalTime(&quot;ready&quot;) &amp; &quot;  &quot; &amp; ballColl.Timer.CurrentTime(&quot;ready&quot;) &amp; &quot;  &quot; &amp; ballColl.Timer.Duration(&quot;ready&quot;) &amp; &quot;  &quot;</param>
-                                        </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
@@ -594,7 +581,7 @@
                                                     <param id="1" name="Message">&quot;each&quot;</param>
                                                 </action>
                                                 <action id="0" name="Call function" sid="846850455266332" type="Function">
-                                                    <param id="0" name="Name">&quot;ballColl .destroyed&quot;</param>
+                                                    <param id="0" name="Name">&quot;ballColl .destroyedBySpecial&quot;</param>
                                                     <param id="1" name="Parameter {n}">ballColl.UID</param>
                                                 </action>
                                             </actions>
