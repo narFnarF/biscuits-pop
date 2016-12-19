@@ -145,6 +145,7 @@
                     <instance-variables>
                         <color>green</color>
                         <big>false</big>
+                        <specialType></specialType>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Physics">

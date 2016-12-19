@@ -304,7 +304,7 @@
                 </instance>
                 <instance type="tapDisplay" uid="17">
                     <properties>
-                        <text>Tap: 10</text>
+                        <text>Tap: 20</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-48,400,0</font>
                         <color>0,0,0</color>

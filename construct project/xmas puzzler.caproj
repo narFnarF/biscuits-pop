@@ -83,6 +83,7 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="big" sid="311286725255678" type="boolean" />
+                <instance-variable name="specialType" sid="813526867436855" type="string" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Physics" sid="269794333250925">
