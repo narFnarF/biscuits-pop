@@ -3,9 +3,20 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>game events</name>
     <events>
-        <variable constant="0" name="touch" sid="169593481736544" static="0" type="number">10</variable>
-        <variable constant="0" name="touchInit" sid="193918613332080" static="0" type="number">10</variable>
+        <variable constant="0" name="touchInit" sid="193918613332080" static="0" type="number">2</variable>
         <variable constant="0" name="score" sid="968227059861179" static="0" type="number">0</variable>
+        <event-block sid="428401861144703">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="191641511827932" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="474199313049968" type="System">
+                    <param id="0" name="Variable">touch</param>
+                    <param id="1" name="Value">touchInit</param>
+                </action>
+            </actions>
+        </event-block>
+        <variable constant="0" name="touch" sid="169593481736544" static="0" type="number">10</variable>
         <event-group description="" sid="413910405155343" title="balls">
             <sub-events>
                 <event-block sid="461941583238247">

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2layout>
-    <name>game over</name>
-    <sid>585608178943106</sid>
-    <event-sheet>game over events</event-sheet>
+    <name>intro</name>
+    <sid>278881474526415</sid>
+    <event-sheet>intro events</event-sheet>
     <size>
         <width>720</width>
         <height>1280</height>
@@ -13,9 +13,9 @@
     </margins>
     <unbounded-scrolling>0</unbounded-scrolling>
     <layers>
-        <layer name="bg" sid="200312275676130">
+        <layer name="bg" sid="587290222342777">
             <initially-visible>1</initially-visible>
-            <background-color>204,204,204</background-color>
+            <background-color>0,204,153</background-color>
             <transparent>0</transparent>
             <parallax>
                 <x>1</x>
@@ -29,9 +29,9 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="tapDisplay" uid="18">
+                <instance type="tapDisplay" uid="19">
                     <properties>
-                        <text>Game over. Pouet pouet! :(</text>
+                        <text>title screen</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-48,400,0</font>
                         <color>0,0,0</color>
@@ -44,8 +44,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>65</x>
-                        <y>539</y>
+                        <x>78</x>
+                        <y>323</y>
                         <z>0</z>
                         <width>614</width>
                         <height>220</height>
