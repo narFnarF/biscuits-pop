@@ -31,7 +31,7 @@
             <instances>
                 <instance type="tapDisplay" uid="18">
                     <properties>
-                        <text>Game over. Pouet pouet! :(</text>
+                        <text>Game over.</text>
                         <initial-visibility>Visible</initial-visibility>
                         <font>Arial,-48,400,0</font>
                         <color>0,0,0</color>

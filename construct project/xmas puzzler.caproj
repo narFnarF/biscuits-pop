@@ -13,6 +13,7 @@
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
@@ -23,6 +24,7 @@
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
     </used-behaviors>
     <used-effects />
     <configurations>
@@ -89,10 +91,15 @@
                 <behavior-type name="Physics" sid="269794333250925">
                     <behavior id="Physics" />
                 </behavior-type>
+                <behavior-type name="Timer" sid="919049080606572">
+                    <behavior id="Timer" />
+                </behavior-type>
             </behaviors>
             <container>
                 <type>ballColl</type>
                 <type>ballView</type>
+                <type>particleBomb</type>
+                <type>particleLaser</type>
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="black" pingpong="0" repeatcount="1" repeatto="0" sid="688599390222172" speed="5">
@@ -122,6 +129,8 @@
             <container>
                 <type>ballColl</type>
                 <type>ballView</type>
+                <type>particleBomb</type>
+                <type>particleLaser</type>
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="black" pingpong="0" repeatcount="1" repeatto="0" sid="570844678676523" speed="5">
@@ -213,6 +222,36 @@
         </object-type>
         <object-type name="tapDisplay" sid="390041710654634">
             <plugin id="Text" />
+        </object-type>
+        <object-type name="particleBomb" sid="381894619950578">
+            <plugin id="Particles" />
+            <behaviors>
+                <behavior-type name="Pin" sid="880839633569359">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>ballColl</type>
+                <type>ballView</type>
+                <type>particleBomb</type>
+                <type>particleLaser</type>
+            </container>
+            <texture />
+        </object-type>
+        <object-type name="particleLaser" sid="575630157643620">
+            <plugin id="Particles" />
+            <behaviors>
+                <behavior-type name="Pin" sid="181677798889640">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <container>
+                <type>ballColl</type>
+                <type>ballView</type>
+                <type>particleBomb</type>
+                <type>particleLaser</type>
+            </container>
+            <texture />
         </object-type>
     </object-folder>
     <families>
