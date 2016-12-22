@@ -70,7 +70,7 @@
                         </action>
                     </actions>
                 </event-block>
-                <variable constant="0" name="sizeModifier" sid="903474557376692" static="0" type="number">1.15</variable>
+                <variable constant="0" name="ballViewSizeMod" sid="903474557376692" static="0" type="number">1</variable>
                 <event-block sid="345779696397425">
                     <conditions>
                         <condition id="-1" name="Every tick" sid="255338420230992" type="System" />
@@ -89,8 +89,8 @@
                             <param id="1" name="From">0</param>
                         </action>
                         <action id="-7" name="Set size" sid="766134493970408" type="ballView">
-                            <param id="0" name="Width">ballColl.Width * sizeModifier</param>
-                            <param id="1" name="Height">ballColl.Height * sizeModifier</param>
+                            <param id="0" name="Width">ballColl.Width * ballViewSizeMod</param>
+                            <param id="1" name="Height">ballColl.Height * ballViewSizeMod</param>
                         </action>
                     </actions>
                 </event-block>

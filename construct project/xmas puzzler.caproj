@@ -134,19 +134,19 @@
             </container>
             <animation-folder>
                 <animation framecount="1" loop="0" name="black" pingpong="0" repeatcount="1" repeatto="0" sid="570844678676523" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\biscuit_0.png" />
                 </animation>
                 <animation framecount="1" loop="0" name="blue" pingpong="0" repeatcount="1" repeatto="0" sid="449807666769100" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.504854" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\biscuit_1.png" />
                 </animation>
                 <animation framecount="1" loop="0" name="red" pingpong="0" repeatcount="1" repeatto="0" sid="564686966530669" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\biscuit_3.png" />
                 </animation>
                 <animation framecount="1" loop="0" name="green" pingpong="0" repeatcount="1" repeatto="0" sid="820001598996638" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\biscuit_2.png" />
                 </animation>
                 <animation framecount="1" loop="0" name="yellow" pingpong="0" repeatcount="1" repeatto="0" sid="647308469166068" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\biscuit_4.png" />
                 </animation>
             </animation-folder>
         </object-type>
@@ -269,6 +269,14 @@
                             <point x="0.0384615" y="0.5" />
                         </collision-poly>
                     </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="pot" sid="870964340349727">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="353673174027702" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\pot.png" />
                 </animation>
             </animation-folder>
         </object-type>
