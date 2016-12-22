@@ -566,7 +566,7 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="14" name="Log" sid="420943564778874" type="Browser">
+                        <action disabled="1" id="14" name="Log" sid="420943564778874" type="Browser">
                             <param id="0" name="Type">0</param>
                             <param id="1" name="Message">&quot;count&quot;</param>
                         </action>
@@ -582,7 +582,7 @@
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="14" name="Log" sid="832016171707460" type="Browser">
+                                <action disabled="1" id="14" name="Log" sid="832016171707460" type="Browser">
                                     <param id="0" name="Type">0</param>
                                     <param id="1" name="Message">&quot;overlapping&quot;</param>
                                 </action>
@@ -596,12 +596,16 @@
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="14" name="Log" sid="474439353400404" type="Browser">
+                                        <action disabled="1" id="14" name="Log" sid="474439353400404" type="Browser">
                                             <param id="0" name="Type">0</param>
                                             <param id="1" name="Message">&quot;for each&quot;</param>
                                         </action>
                                         <action id="0" name="Call function" sid="846850455266332" type="Function">
                                             <param id="0" name="Name">&quot;ballColl .destroyedBySpecial&quot;</param>
+                                            <param id="1" name="Parameter {n}">ballColl.UID</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="504337982621759" type="Function">
+                                            <param id="0" name="Name">&quot;score .combo+1&quot;</param>
                                             <param id="1" name="Parameter {n}">ballColl.UID</param>
                                         </action>
                                     </actions>
@@ -663,7 +667,7 @@
                 </event-group>
                 <event-group description="" sid="863983604341057" title="bombs">
                     <sub-events>
-                        <variable constant="0" name="explosionSizeBomb" sid="393034172591118" static="0" type="number">4</variable>
+                        <variable constant="0" name="explosionSizeBomb" sid="393034172591118" static="0" type="number">2.5</variable>
                         <event-block sid="187425588241711">
                             <conditions>
                                 <condition id="0" name="On function" sid="789981951825529" type="Function">
