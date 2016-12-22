@@ -435,7 +435,7 @@
     <nonworld-instances>
         <instance type="highscore" uid="27">
             <properties>
-                <width>6</width>
+                <width>0</width>
                 <height>2</height>
                 <depth>1</depth>
             </properties>

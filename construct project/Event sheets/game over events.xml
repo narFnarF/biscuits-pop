@@ -3,6 +3,52 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>game over events</name>
     <events>
+        <event-group description="" sid="901264854452301" title="debug (end game)">
+            <sub-events>
+                <event-block sid="463786670833368">
+                    <conditions>
+                        <condition id="-18" name="Is in preview" sid="989053489169131" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="102102945886185">
+                            <conditions>
+                                <condition id="-2" name="On start of layout" sid="570300048643914" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="271840754239998" type="System">
+                                    <param id="0" name="Variable">score</param>
+                                    <param id="1" name="Value">789</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block disabled="1" sid="147565904282620">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="558085568241570" type="Keyboard">
+                                    <param id="0" name="Key">222 (/)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="5" name="Push" sid="449122070295740" type="highscore">
+                                    <param id="0" name="Where">0</param>
+                                    <param id="1" name="Value">score</param>
+                                    <param id="2" name="Axis">0</param>
+                                </action>
+                                <action id="3" name="Set at XY" sid="879517086872294" type="highscore">
+                                    <param id="0" name="X">highscore.Width-1</param>
+                                    <param id="1" name="Y">1</param>
+                                    <param id="2" name="Value">nameBox.Text</param>
+                                </action>
+                                <action id="0" name="Call function" sid="897375240339161" type="Function">
+                                    <param id="0" name="Name">&quot;end .updateHighscore&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
         <event-block sid="142492451157466">
             <conditions>
                 <condition id="14" name="On tap" sid="167520040636083" type="Touch" />
@@ -92,15 +138,37 @@
                             <param id="1" name="Y">1</param>
                             <param id="2" name="Value">nameBox.Text</param>
                         </action>
-                        <action id="4" name="Set enabled" sid="230139582259749" type="nameBox">
-                            <param id="0" name="Mode">0</param>
+                        <action id="8" name="Sort" sid="871487088223339" type="highscore">
+                            <param id="0" name="Axis">0</param>
                         </action>
-                        <action id="3" name="Set enabled" sid="770565955572929" type="sendButton">
-                            <param id="0" name="Mode">0</param>
+                        <action id="7" name="Reverse" sid="328220938093856" type="highscore">
+                            <param id="0" name="Axis">0</param>
                         </action>
+                        <action id="-9" name="Destroy" sid="133991231907089" type="nameBox" />
                         <action id="-9" name="Destroy" sid="694209190929566" type="sendButton" />
-                        <action id="-26" name="Restart layout" sid="911963692652784" type="System" />
+                        <action id="0" name="Call function" sid="837614304777359" type="Function">
+                            <param id="0" name="Name">&quot;end .updateHighscore&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="706715985841910">
+                            <conditions>
+                                <condition id="7" name="Compare size" sid="615689328532768" type="highscore">
+                                    <param id="0" name="Axis">0</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set size" sid="441144532322571" type="highscore">
+                                    <param id="0" name="Width">6</param>
+                                    <param id="1" name="Height">2</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -114,7 +182,7 @@
             <sub-events>
                 <event-block sid="197466314527540">
                     <conditions>
-                        <condition id="0" name="Compare text" sid="929527573637609" type="highscoreDisplay">
+                        <condition disabled="1" id="0" name="Compare text" sid="929527573637609" type="highscoreDisplay">
                             <param id="0" name="Text to compare">&quot;highscore&quot;</param>
                             <param id="1" name="Case sensitivity">0</param>
                         </condition>
@@ -136,7 +204,7 @@
                             </conditions>
                             <actions>
                                 <action id="1" name="Append text" sid="940297117879679" type="highscoreDisplay">
-                                    <param id="0" name="Text">highscore.CurX+1 &amp; &quot;) 123 : toto&quot; &amp; newline</param>
+                                    <param id="0" name="Text">highscore.CurX+1 &amp; &quot;) &quot; &amp; highscore.CurValue &amp; &quot; : &quot; &amp; highscore.At(highscore.CurX, 1) &amp; newline</param>
                                 </action>
                                 <action id="8" name="Sort" sid="754863480147251" type="highscore">
                                     <param id="0" name="Axis">0</param>
