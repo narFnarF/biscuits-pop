@@ -923,7 +923,7 @@
                     <conditions />
                     <actions>
                         <action id="0" name="Set text" sid="357705490996389" type="tapDisplay">
-                            <param id="0" name="Text">&quot;Taps: &quot; &amp; touch</param>
+                            <param id="0" name="Text">&quot;Taps &quot; &amp; newline &amp; touch</param>
                         </action>
                     </actions>
                 </event-block>
