@@ -5,6 +5,8 @@
     <events>
         <comment>parameters</comment>
         <variable constant="0" name="touchInit" sid="193918613332080" static="0" type="number">20</variable>
+        <variable constant="1" name="BALLS_FOR_BOMBS" sid="554021193882209" static="0" type="number">4</variable>
+        <variable constant="1" name="BALLS_FOR_LASER" sid="621284718965849" static="0" type="number">6</variable>
         <event-block sid="428401861144703">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="191641511827932" type="System" />
@@ -354,7 +356,7 @@
                                     <actions>
                                         <action id="0" name="Call function" sid="407260824096956" type="Function">
                                             <param id="0" name="Name">&quot;score .combo+1&quot;</param>
-                                            <param id="1" name="Parameter {n}"></param>
+                                            <param id="1" name="Parameter {n}">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -606,7 +608,7 @@
                                         </action>
                                         <action id="0" name="Call function" sid="504337982621759" type="Function">
                                             <param id="0" name="Name">&quot;score .combo+1&quot;</param>
-                                            <param id="1" name="Parameter {n}">ballColl.UID</param>
+                                            <param id="1" name="Parameter {n}">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -716,6 +718,8 @@
             <sub-events>
                 <variable constant="0" name="scoreCounter" sid="900227794840302" static="1" type="number">0</variable>
                 <variable constant="0" name="timer" sid="492331901077624" static="1" type="number">0</variable>
+                <comment>if there was a special explosion in the last explosion (set by function &quot;score.combo+1&quot;)</comment>
+                <variable comment="1=true" constant="0" name="wasThereASpecialExplosion" sid="352021631576381" static="1" type="number">0</variable>
                 <event-block sid="987367389222703">
                     <conditions>
                         <condition id="0" name="On function" sid="681173193282234" type="Function">
@@ -729,6 +733,10 @@
                         </action>
                         <action id="-9" name="Set value" sid="759027429854015" type="System">
                             <param id="0" name="Variable">timer</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="478732963510185" type="System">
+                            <param id="0" name="Variable">wasThereASpecialExplosion</param>
                             <param id="1" name="Value">0</param>
                         </action>
                         <action id="-11" name="Subtract from" sid="481719631319227" type="System">
@@ -821,36 +829,54 @@
                         </action>
                     </actions>
                     <sub-events>
-                        <event-block sid="647167967790397">
+                        <comment>only spawn bomb or laser if there was no bomb or laser used in the last boom</comment>
+                        <event-block sid="170810948189181">
                             <conditions>
-                                <condition id="-14" name="Compare variable" sid="441578038538126" type="System">
-                                    <param id="0" name="Variable">scoreCounter</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">3</param>
+                                <condition id="-14" name="Compare variable" sid="570847762905568" type="System">
+                                    <param id="0" name="Variable">wasThereASpecialExplosion</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="0" name="Call function" sid="989464463090074" type="Function">
-                                    <param id="0" name="Name">&quot;special .createSpecial&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;laser&quot;</param>
+                                <action id="14" name="Log" sid="696917587794388" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;no special explosions&quot;</param>
                                 </action>
                             </actions>
-                        </event-block>
-                        <event-block sid="913316074780973">
-                            <conditions>
-                                <condition id="-22" name="Else" sid="301012250220436" type="System" />
-                                <condition id="-14" name="Compare variable" sid="514559895520325" type="System">
-                                    <param id="0" name="Variable">scoreCounter</param>
-                                    <param id="1" name="Comparison">5</param>
-                                    <param id="2" name="Value">2</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="0" name="Call function" sid="227077666458454" type="Function">
-                                    <param id="0" name="Name">&quot;special .createSpecial&quot;</param>
-                                    <param id="1" name="Parameter {n}">&quot;bomb&quot;</param>
-                                </action>
-                            </actions>
+                            <sub-events>
+                                <event-block sid="647167967790397">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="441578038538126" type="System">
+                                            <param id="0" name="Variable">scoreCounter</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">BALLS_FOR_LASER</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="989464463090074" type="Function">
+                                            <param id="0" name="Name">&quot;special .createSpecial&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;laser&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="913316074780973">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="301012250220436" type="System" />
+                                        <condition id="-14" name="Compare variable" sid="514559895520325" type="System">
+                                            <param id="0" name="Variable">scoreCounter</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">BALLS_FOR_BOMBS</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="227077666458454" type="Function">
+                                            <param id="0" name="Name">&quot;special .createSpecial&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;bomb&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -875,24 +901,55 @@
                             <param id="0" name="Name">&quot;score .combo+1&quot;</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="589068269576937" type="Function">
-                            <param id="0" name="Name">&quot;score .notDoneYet&quot;</param>
-                            <param id="1" name="Parameter {n}"></param>
-                        </action>
-                        <action id="-9" name="Set value" sid="159789184820200" type="System">
-                            <param id="0" name="Variable">timer</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-10" name="Add to" sid="400500401364989" type="System">
-                            <param id="0" name="Variable">scoreCounter</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action disabled="1" id="14" name="Log" sid="704342206510656" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">&quot;scoreCounter: &quot; &amp; scoreCounter</param>
-                        </action>
-                    </actions>
+                    <actions />
+                    <sub-events>
+                        <variable comment="1=true" constant="0" name="specialExplosion" sid="262370581124199" static="0" type="number">0</variable>
+                        <event-block sid="253009292967966">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="668618628739508" type="System">
+                                    <param id="0" name="Variable">specialExplosion</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="888726720107568">
+                            <conditions />
+                            <actions>
+                                <action id="0" name="Call function" sid="589068269576937" type="Function">
+                                    <param id="0" name="Name">&quot;score .notDoneYet&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-9" name="Set value" sid="159789184820200" type="System">
+                                    <param id="0" name="Variable">timer</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="400500401364989" type="System">
+                                    <param id="0" name="Variable">scoreCounter</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="428949499581741">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="210319592165853" type="System">
+                                    <param id="0" name="Variable">specialExplosion</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="317557628713308" type="System">
+                                    <param id="0" name="Variable">wasThereASpecialExplosion</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="14" name="Log" sid="362266040776955" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;something special&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
