@@ -807,30 +807,13 @@
                         </condition>
                     </conditions>
                     <actions>
-                        <action disabled="1" id="14" name="Log" sid="927069944770060" type="Browser">
-                            <param id="0" name="Type">0</param>
-                            <param id="1" name="Message">&quot;score: &quot; &amp; scoreCounter</param>
-                        </action>
-                        <action id="-3" name="Create object" sid="822550950520472" type="System">
-                            <param id="0" name="Object to create">scoreAdd</param>
-                            <param id="1" name="Layer">&quot;game&quot;</param>
-                            <param id="2" name="X">379</param>
-                            <param id="3" name="Y">1188</param>
-                        </action>
-                        <action behavior="Fade" disabled="1" id="0" name="Restart fade" sid="731033990100135" type="scoreAdd" />
-                        <action disabled="1" id="-3" name="Set position" sid="232874712985753" type="scoreAdd">
-                            <param id="0" name="X">379</param>
-                            <param id="1" name="Y">1188</param>
-                        </action>
-                        <action behavior="Bullet" id="3" name="Set angle of motion" sid="242205537630733" type="scoreAdd">
-                            <param id="0" name="Angle">-90</param>
-                        </action>
                         <action id="-10" name="Add to" sid="198226384997086" type="System">
                             <param id="0" name="Variable">score</param>
                             <param id="1" name="Value">scoreCounter</param>
                         </action>
-                        <action id="0" name="Set text" sid="799199790053281" type="scoreAdd">
-                            <param id="0" name="Text">&quot;+&quot; &amp; scoreCounter</param>
+                        <action id="0" name="Call function" sid="529544220752794" type="Function">
+                            <param id="0" name="Name">&quot;UI .showPlusX&quot;</param>
+                            <param id="1" name="Parameter {n}">scoreCounter</param>
                         </action>
                     </actions>
                     <sub-events>
@@ -911,6 +894,7 @@
         </event-group>
         <event-group description="" sid="238612343500145" title="UI">
             <sub-events>
+                <comment>score UI</comment>
                 <event-block sid="595678236325805">
                     <conditions />
                     <actions>
@@ -919,6 +903,7 @@
                         </action>
                     </actions>
                 </event-block>
+                <comment>tap remaining UI</comment>
                 <event-block sid="251376650123096">
                     <conditions />
                     <actions>
@@ -956,6 +941,43 @@
                                 <action id="2" name="Set font face" sid="161070703993192" type="tapDisplay">
                                     <param id="0" name="Font face">&quot;Arial&quot;</param>
                                     <param id="1" name="Style">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="119309195538032">
+                    <conditions>
+                        <condition id="0" name="On function" sid="465598626528781" type="Function">
+                            <param id="0" name="Name">&quot;UI .showPlusX&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <variable constant="0" name="nb" sid="755037263175866" static="0" type="number">0</variable>
+                        <event-block sid="727501853257789">
+                            <conditions />
+                            <actions>
+                                <action id="-9" name="Set value" sid="808685820948876" type="System">
+                                    <param id="0" name="Variable">nb</param>
+                                    <param id="1" name="Value">Function.Param(0)</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="635548431713684">
+                            <conditions />
+                            <actions>
+                                <action id="-3" name="Create object" sid="633647270307590" type="System">
+                                    <param id="0" name="Object to create">scoreAdd</param>
+                                    <param id="1" name="Layer">&quot;ribbon&quot;</param>
+                                    <param id="2" name="X">510</param>
+                                    <param id="3" name="Y">1164</param>
+                                </action>
+                                <action behavior="Bullet" id="3" name="Set angle of motion" sid="977225029258113" type="scoreAdd">
+                                    <param id="0" name="Angle">-90</param>
+                                </action>
+                                <action id="0" name="Set text" sid="799199790053281" type="scoreAdd">
+                                    <param id="0" name="Text">&quot;+&quot; &amp; nb</param>
                                 </action>
                             </actions>
                         </event-block>
