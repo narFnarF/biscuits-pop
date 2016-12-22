@@ -4,7 +4,7 @@
     <name>game events</name>
     <events>
         <comment>parameters</comment>
-        <variable constant="0" name="touchInit" sid="193918613332080" static="0" type="number">6</variable>
+        <variable constant="0" name="touchInit" sid="193918613332080" static="0" type="number">20</variable>
         <event-block sid="428401861144703">
             <conditions>
                 <condition id="-2" name="On start of layout" sid="191641511827932" type="System" />
@@ -968,6 +968,7 @@
                                 </action>
                             </actions>
                         </event-block>
+                        <variable constant="0" name="textSizeMultiplier" sid="219653691781903" static="0" type="number">3</variable>
                         <event-block sid="635548431713684">
                             <conditions />
                             <actions>
@@ -982,6 +983,9 @@
                                 </action>
                                 <action id="0" name="Set text" sid="799199790053281" type="scoreAdd">
                                     <param id="0" name="Text">&quot;+&quot; &amp; nb</param>
+                                </action>
+                                <action id="3" name="Set font size" sid="107434528884973" type="scoreAdd">
+                                    <param id="0" name="Size (pt)">20+(nb*textSizeMultiplier)</param>
                                 </action>
                             </actions>
                         </event-block>
