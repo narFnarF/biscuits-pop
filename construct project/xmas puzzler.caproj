@@ -10,17 +10,21 @@
     <unique-id>2m2oqhlgof90t</unique-id>
     <saved-with-version>23900</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
         <plugin author="Scirra" id="Browser" version="1">Browser</plugin>
+        <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
+        <plugin author="Scirra" id="TextBox" version="1">Text box</plugin>
         <plugin author="Scirra" id="Touch" version="1">Touch</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
         <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
+        <behavior author="Scirra" id="Persist" version="1">Persist</behavior>
         <behavior author="Scirra" id="Physics" version="1">Physics</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Rotate" version="1">Rotate</behavior>
@@ -298,6 +302,23 @@
                     </frame>
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type global="1" name="highscore" sid="986215361869755">
+            <plugin id="Arr" />
+        </object-type>
+        <object-type name="nameBox" sid="494972431126158">
+            <plugin id="TextBox" />
+            <behaviors>
+                <behavior-type name="Persist" sid="896016761943427">
+                    <behavior id="Persist" />
+                </behavior-type>
+            </behaviors>
+        </object-type>
+        <object-type name="sendButton" sid="289740718389892">
+            <plugin id="Button" />
+        </object-type>
+        <object-type name="highscoreDisplay" sid="984543138754134">
+            <plugin id="Text" />
         </object-type>
     </object-folder>
     <families>

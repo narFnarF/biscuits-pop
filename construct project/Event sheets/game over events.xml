@@ -13,5 +13,139 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="271304764284514">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="988055086702321" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="499511241730237">
+                    <conditions>
+                        <condition id="0" name="Compare text" sid="593088778981015" type="tapDisplay">
+                            <param id="0" name="Text to compare">&quot;yay&quot;</param>
+                            <param id="1" name="Case sensitivity">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="236738077110916" type="tapDisplay">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="819694957305389" type="tapDisplay">
+                            <param id="0" name="Text">&quot;Bravo!&quot; &amp; newline</param>
+                        </action>
+                        <action id="1" name="Append text" sid="775363168887677" type="tapDisplay">
+                            <param id="0" name="Text">&quot;You win!&quot; &amp; newline</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="850268961400662">
+                    <conditions>
+                        <condition id="0" name="Compare text" sid="305214377107476" type="tapDisplay">
+                            <param id="0" name="Text to compare">&quot;score&quot;</param>
+                            <param id="1" name="Case sensitivity">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="386835966117341" type="tapDisplay">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="924102676822879" type="tapDisplay">
+                            <param id="0" name="Text">&quot;Tu as eu &quot; &amp; score &amp; &quot; points! Yay!&quot; &amp; newline</param>
+                        </action>
+                        <action id="1" name="Append text" sid="785100461756698" type="tapDisplay">
+                            <param id="0" name="Text">&quot;You got &quot; &amp; score &amp; &quot; points! Yay!&quot; &amp; newline</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="501207761900428">
+                    <conditions />
+                    <actions>
+                        <action id="0" name="Call function" sid="366012895779180" type="Function">
+                            <param id="0" name="Name">&quot;end .updateHighscore&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block any="1" sid="172092800004606">
+            <conditions>
+                <condition id="0" name="On clicked" sid="794956081977525" type="sendButton" />
+                <condition id="0" name="On key pressed" sid="739401575976824" type="Keyboard">
+                    <param id="0" name="Key">13 (Return)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="349139659840783">
+                    <conditions>
+                        <condition id="-3" name="Is on-screen" sid="105459360596472" type="sendButton" />
+                    </conditions>
+                    <actions>
+                        <action id="5" name="Push" sid="955370805091871" type="highscore">
+                            <param id="0" name="Where">0</param>
+                            <param id="1" name="Value">score</param>
+                            <param id="2" name="Axis">0</param>
+                        </action>
+                        <action id="3" name="Set at XY" sid="484916217176890" type="highscore">
+                            <param id="0" name="X">highscore.Width-1</param>
+                            <param id="1" name="Y">1</param>
+                            <param id="2" name="Value">nameBox.Text</param>
+                        </action>
+                        <action id="4" name="Set enabled" sid="230139582259749" type="nameBox">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="3" name="Set enabled" sid="770565955572929" type="sendButton">
+                            <param id="0" name="Mode">0</param>
+                        </action>
+                        <action id="-9" name="Destroy" sid="694209190929566" type="sendButton" />
+                        <action id="-26" name="Restart layout" sid="911963692652784" type="System" />
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="541292846595652">
+            <conditions>
+                <condition id="0" name="On function" sid="923026761710543" type="Function">
+                    <param id="0" name="Name">&quot;end .updateHighscore&quot;</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="197466314527540">
+                    <conditions>
+                        <condition id="0" name="Compare text" sid="929527573637609" type="highscoreDisplay">
+                            <param id="0" name="Text to compare">&quot;highscore&quot;</param>
+                            <param id="1" name="Case sensitivity">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Set text" sid="902944396412942" type="highscoreDisplay">
+                            <param id="0" name="Text">&quot;&quot;</param>
+                        </action>
+                        <action id="1" name="Append text" sid="992278815116515" type="highscoreDisplay">
+                            <param id="0" name="Text">&quot;Highscore&quot; &amp; newline</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="178272564692563">
+                            <conditions>
+                                <condition id="3" name="For each element" sid="786655835748305" type="highscore">
+                                    <param id="0" name="Axes">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Append text" sid="940297117879679" type="highscoreDisplay">
+                                    <param id="0" name="Text">highscore.CurX+1 &amp; &quot;) 123 : toto&quot; &amp; newline</param>
+                                </action>
+                                <action id="8" name="Sort" sid="754863480147251" type="highscore">
+                                    <param id="0" name="Axis">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
     </events>
 </c2eventsheet>
