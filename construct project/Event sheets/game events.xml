@@ -1086,6 +1086,32 @@
                                     <param id="0" name="Size (pt)">20+(nb*textSizeMultiplier)</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="538432536656179">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="237735088815315" type="System">
+                                            <param id="0" name="Variable">nb</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">20</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set font color" sid="933235990780142" type="scoreAdd">
+                                            <param id="0" name="Color">rgb(999, 0, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="801491733908155">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="464203935036113" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set font color" sid="804852534632269" type="scoreAdd">
+                                            <param id="0" name="Color">rgb(0, 0, 0)</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
