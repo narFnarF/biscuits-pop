@@ -142,44 +142,15 @@
                             <param id="1" name="Y">1</param>
                             <param id="2" name="Value">nameBox.Text</param>
                         </action>
-                        <action id="8" name="Sort" sid="871487088223339" type="highscore">
-                            <param id="0" name="Axis">0</param>
-                        </action>
-                        <action id="7" name="Reverse" sid="328220938093856" type="highscore">
-                            <param id="0" name="Axis">0</param>
-                        </action>
                         <action id="3" name="Set visible" sid="133991231907089" type="nameBox">
                             <param id="0" name="Visibility">0</param>
                         </action>
                         <action id="-9" name="Destroy" sid="694209190929566" type="sendButton" />
+                        <action id="0" name="Call function" sid="837614304777359" type="Function">
+                            <param id="0" name="Name">&quot;end .updateHighscore&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
                     </actions>
-                    <sub-events>
-                        <event-block sid="706715985841910">
-                            <conditions>
-                                <condition id="7" name="Compare size" sid="615689328532768" type="highscore">
-                                    <param id="0" name="Axis">0</param>
-                                    <param id="1" name="Comparison">4</param>
-                                    <param id="2" name="Value">6</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="1" name="Set size" sid="441144532322571" type="highscore">
-                                    <param id="0" name="Width">6</param>
-                                    <param id="1" name="Height">2</param>
-                                    <param id="2" name="Depth">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="873641513602882">
-                            <conditions />
-                            <actions>
-                                <action id="0" name="Call function" sid="837614304777359" type="Function">
-                                    <param id="0" name="Name">&quot;end .updateHighscore&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
                 </event-block>
             </sub-events>
         </event-block>
@@ -205,8 +176,30 @@
                         <action id="1" name="Append text" sid="992278815116515" type="highscoreDisplay">
                             <param id="0" name="Text">&quot;Highscore&quot; &amp; newline</param>
                         </action>
+                        <action id="8" name="Sort" sid="871487088223339" type="highscore">
+                            <param id="0" name="Axis">0</param>
+                        </action>
+                        <action id="7" name="Reverse" sid="328220938093856" type="highscore">
+                            <param id="0" name="Axis">0</param>
+                        </action>
                     </actions>
                     <sub-events>
+                        <event-block sid="706715985841910">
+                            <conditions>
+                                <condition id="7" name="Compare size" sid="615689328532768" type="highscore">
+                                    <param id="0" name="Axis">0</param>
+                                    <param id="1" name="Comparison">4</param>
+                                    <param id="2" name="Value">6</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="1" name="Set size" sid="441144532322571" type="highscore">
+                                    <param id="0" name="Width">6</param>
+                                    <param id="1" name="Height">2</param>
+                                    <param id="2" name="Depth">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="178272564692563">
                             <conditions>
                                 <condition id="3" name="For each element" sid="786655835748305" type="highscore">
@@ -215,10 +208,14 @@
                             </conditions>
                             <actions>
                                 <action id="1" name="Append text" sid="940297117879679" type="highscoreDisplay">
-                                    <param id="0" name="Text">highscore.CurX+1 &amp; &quot;) &quot; &amp; highscore.CurValue &amp; &quot; : &quot; &amp; highscore.At(highscore.CurX, 1) &amp; newline</param>
+                                    <param id="0" name="Text">highscore.CurX+1 &amp; &quot;- &quot; &amp; highscore.At(highscore.CurX, 1) &amp; &quot;  &quot; &amp; highscore.CurValue &amp; &quot;pts&quot; &amp; newline</param>
                                 </action>
-                                <action id="8" name="Sort" sid="754863480147251" type="highscore">
+                                <action disabled="1" id="8" name="Sort" sid="754863480147251" type="highscore">
                                     <param id="0" name="Axis">0</param>
+                                </action>
+                                <action disabled="1" id="14" name="Log" sid="762959911000821" type="Browser">
+                                    <param id="0" name="Type">0</param>
+                                    <param id="1" name="Message">&quot;for each:  CurX=&quot; &amp; highscore.CurX &amp; &quot;  CurValue=&quot; &amp; highscore.CurValue &amp; &quot;   CurY=&quot; &amp; highscore.CurY &amp; &quot;  At(CurX)=&quot; &amp; highscore.At(highscore.CurX, 1)</param>
                                 </action>
                             </actions>
                         </event-block>
