@@ -73,6 +73,56 @@
                 <plugin id="LocalStorage" />
             </object-type>
         </object-folder>
+        <object-folder name="art panels">
+            <object-type name="titleScreen" sid="322569050599246">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="873420081325566" speed="5">
+                        <frame duration="1" hotspotX="0.502538" hotspotY="0.5" original-source="C:\Users\fpare\Desktop\2016-12-23 18_32_44-Clipboard.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="biscuitPop" sid="947354997186406">
+                <plugin id="Sprite" />
+                <behaviors>
+                    <behavior-type name="Bullet" sid="982306107002017">
+                        <behavior id="Bullet" />
+                    </behavior-type>
+                </behaviors>
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="129304845400956" speed="5">
+                        <frame duration="1" hotspotX="0.501099" hotspotY="0.5" original-source="C:\Users\fpare\Documents\à moi\gamedev\puzzle-xmas\art\biscuit pop.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="pot" sid="870964340349727">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="353673174027702" speed="5">
+                        <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\pot.png" />
+                    </animation>
+                </animation-folder>
+            </object-type>
+            <object-type name="ui_ruban" sid="613799837988239">
+                <plugin id="Sprite" />
+                <animation-folder>
+                    <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="290814842028595" speed="5">
+                        <frame duration="1" hotspotX="0.5" hotspotY="0.501873" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\ui_ruban.png">
+                            <collision-poly>
+                                <point x="0.0472222" y="0.127341" />
+                                <point x="0.5" y="0.322097" />
+                                <point x="0.880556" y="0.322097" />
+                                <point x="1" y="0.498127" />
+                                <point x="0.890278" y="0.70412" />
+                                <point x="0.5" y="0.70412" />
+                                <point x="0.0791667" y="0.786517" />
+                                <point x="0" y="0.498127" />
+                            </collision-poly>
+                        </frame>
+                    </animation>
+                </animation-folder>
+            </object-type>
+        </object-folder>
         <object-type name="wall" sid="260957157762034">
             <plugin id="Sprite" />
             <instance-variables>
@@ -280,33 +330,6 @@
                 </animation>
             </animation-folder>
         </object-type>
-        <object-type name="pot" sid="870964340349727">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="353673174027702" speed="5">
-                    <frame duration="1" hotspotX="0" hotspotY="0" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\pot.png" />
-                </animation>
-            </animation-folder>
-        </object-type>
-        <object-type name="ui_ruban" sid="613799837988239">
-            <plugin id="Sprite" />
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="290814842028595" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.501873" original-source="C:\Users\narF\Documents\github\puzzle-xmas\art\ui_ruban.png">
-                        <collision-poly>
-                            <point x="0.0472222" y="0.127341" />
-                            <point x="0.5" y="0.322097" />
-                            <point x="0.880556" y="0.322097" />
-                            <point x="1" y="0.498127" />
-                            <point x="0.890278" y="0.70412" />
-                            <point x="0.5" y="0.70412" />
-                            <point x="0.0791667" y="0.786517" />
-                            <point x="0" y="0.498127" />
-                        </collision-poly>
-                    </frame>
-                </animation>
-            </animation-folder>
-        </object-type>
         <object-type global="1" name="highscore" sid="986215361869755">
             <plugin id="Arr" />
         </object-type>
@@ -323,19 +346,6 @@
         </object-type>
         <object-type name="highscoreDisplay" sid="984543138754134">
             <plugin id="Text" />
-        </object-type>
-        <object-type name="biscuitPop" sid="947354997186406">
-            <plugin id="Sprite" />
-            <behaviors>
-                <behavior-type name="Bullet" sid="982306107002017">
-                    <behavior id="Bullet" />
-                </behavior-type>
-            </behaviors>
-            <animation-folder>
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="129304845400956" speed="5">
-                    <frame duration="1" hotspotX="0.501099" hotspotY="0.5" original-source="C:\Users\fpare\Documents\à moi\gamedev\puzzle-xmas\art\biscuit pop.png" />
-                </animation>
-            </animation-folder>
         </object-type>
     </object-folder>
     <families>
