@@ -15,6 +15,7 @@
         <plugin author="Scirra" id="Button" version="1">Button</plugin>
         <plugin author="Scirra" id="Function" version="1">Function</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="LocalStorage" version="1">Local storage</plugin>
         <plugin author="Scirra" id="Particles" version="1">Particles</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
         <plugin author="Scirra" id="Text" version="1">Text</plugin>
@@ -67,6 +68,9 @@
             </object-type>
             <object-type name="Keyboard" sid="811325036075786">
                 <plugin id="Keyboard" />
+            </object-type>
+            <object-type name="LocalStorage" sid="218181996010881">
+                <plugin id="LocalStorage" />
             </object-type>
         </object-folder>
         <object-type name="wall" sid="260957157762034">
@@ -365,6 +369,7 @@
             </properties>
         </global-instance>
         <global-instance type="Keyboard" uid="6" />
+        <global-instance type="LocalStorage" uid="26" />
     </global-instances>
     <sounds-folder />
     <music-folder />
