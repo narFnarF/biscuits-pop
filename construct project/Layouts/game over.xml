@@ -15,7 +15,7 @@
     <layers>
         <layer name="bg" sid="200312275676130">
             <initially-visible>1</initially-visible>
-            <background-color>204,204,204</background-color>
+            <background-color>167,194,206</background-color>
             <transparent>0</transparent>
             <parallax>
                 <x>1</x>
