@@ -263,14 +263,14 @@
                 </instance>
                 <instance type="particleBomb" uid="20">
                     <properties>
-                        <rate>70</rate>
+                        <rate>10</rate>
                         <spray-cone>360</spray-cone>
                         <type>Continuous spray</type>
                         <initial-particle-properties></initial-particle-properties>
                         <speed>100</speed>
                         <size>15</size>
-                        <opacity>20</opacity>
-                        <grow-rate>50</grow-rate>
+                        <opacity>70</opacity>
+                        <grow-rate>40</grow-rate>
                         <x-randomiser>0</x-randomiser>
                         <y-randomiser>0</y-randomiser>
                         <speed-randomiser->0</speed-randomiser->
@@ -291,8 +291,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>-218</x>
-                        <y>374</y>
+                        <x>-204</x>
+                        <y>370</y>
                         <z>0</z>
                         <width>128</width>
                         <height>128</height>
