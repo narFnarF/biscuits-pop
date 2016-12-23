@@ -4,7 +4,7 @@
     <name>game events</name>
     <events>
         <comment>parameters</comment>
-        <variable constant="1" name="TOUCH_INIT" sid="193918613332080" static="0" type="number">1</variable>
+        <variable constant="1" name="TOUCH_INIT" sid="193918613332080" static="0" type="number">20</variable>
         <variable constant="1" name="BALLS_FOR_BOMBS" sid="554021193882209" static="0" type="number">4</variable>
         <variable constant="1" name="BALLS_FOR_LASER" sid="621284718965849" static="0" type="number">6</variable>
         <event-block sid="428401861144703">
@@ -153,14 +153,39 @@
                             </conditions>
                             <actions>
                                 <action id="-9" name="Destroy" sid="170638213120476" type="ballColl" />
-                                <action disabled="1" id="-16" name="Wait" sid="510294179526695" type="System">
-                                    <param id="0" name="Seconds">1</param>
-                                </action>
-                                <action disabled="1" id="0" name="Call function" sid="563273468481946" type="Function">
-                                    <param id="0" name="Name">&quot;spawner .spawnRandom&quot;</param>
-                                    <param id="1" name="Parameter {n}"></param>
-                                </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="920179804792196">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="717833578880039" type="ballColl">
+                                            <param id="0" name="Instance variable">specialType</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;laser&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="640187707014418" type="Function">
+                                            <param id="0" name="Name">&quot;special .triggerLaser&quot;</param>
+                                            <param id="1" name="Parameter {n}">ballColl.X{###}ballColl.Y{###}ballColl.Angle</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="819530572099839">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="942400215685363" type="ballColl">
+                                            <param id="0" name="Instance variable">specialType</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;bomb&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="959906889525779" type="Function">
+                                            <param id="0" name="Name">&quot;special .triggerBomb&quot;</param>
+                                            <param id="1" name="Parameter {n}">ballColl.X{###}ballColl.Y</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -396,7 +421,7 @@
                                             <param id="0" name="Name">&quot;special .triggerBomb&quot;</param>
                                             <param id="1" name="Parameter {n}">ballColl.X{###}ballColl.Y</param>
                                         </action>
-                                        <action id="14" name="Log" sid="814338506033575" type="Browser">
+                                        <action disabled="1" id="14" name="Log" sid="814338506033575" type="Browser">
                                             <param id="0" name="Type">0</param>
                                             <param id="1" name="Message">&quot;it was a bomb&quot;</param>
                                         </action>
@@ -562,7 +587,7 @@
                         </event-block>
                     </sub-events>
                 </event-block>
-                <comment>the boom itself</comment>
+                <comment>the special boom itself</comment>
                 <event-block sid="305256493093460">
                     <conditions>
                         <condition id="-8" name="Compare two values" sid="487549052075838" type="System">
