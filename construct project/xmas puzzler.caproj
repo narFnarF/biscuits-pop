@@ -324,6 +324,14 @@
         <object-type name="highscoreDisplay" sid="984543138754134">
             <plugin id="Text" />
         </object-type>
+        <object-type name="biscuitPop" sid="947354997186406">
+            <plugin id="Sprite" />
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="129304845400956" speed="5">
+                    <frame duration="1" hotspotX="0.501099" hotspotY="0.5" original-source="C:\Users\fpare\Documents\à moi\gamedev\puzzle-xmas\art\biscuit pop.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="colored" plugin-id="Sprite" sid="555123717984583">
