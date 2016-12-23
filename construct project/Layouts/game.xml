@@ -439,7 +439,7 @@
                         <behavior-instance type="Bullet">
                             <properties>
                                 <speed>0</speed>
-                                <acceleration>600</acceleration>
+                                <acceleration>800</acceleration>
                                 <gravity>0</gravity>
                                 <bounce-off-solids>No</bounce-off-solids>
                                 <set-angle>Yes</set-angle>
